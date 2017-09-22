@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSMpeg Video Test</title>
+  <style>
+    #videoWrapper {
+      margin: 0 auto;
+      width: 640px;
+      height: 360px;
+    }
+  </style>
+</head>
+
+<body>
+<div id="videoWrapper"></div>
+
+<script src="./JSMpeg.min.js"></script>
+<script>
+  var
+    poster = 'https://raw.githubusercontent.com/cycjimmy/staticFiles/storage/images/screenshot/big_buck_bunny_640x360.jpg'
+    , videoUrl = './media/big_buck_bunny_640x360.ts'
+  ;
+
+  var
+    video = new JSMpeg.VideoElement('#videoWrapper', videoUrl, {
+      poster,
+    })
+  ;
+
+  console.log(video);
+</script>
+
+</body>
+</html>
