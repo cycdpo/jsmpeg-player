@@ -1,17 +1,48 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>JSMpeg Video Test</title><style>#videoWrapper {
-  margin: 0 auto;
+  margin: 20px auto;
   width: 640px;
   height: 360px;
 }
-</style></head><body><div id="videoWrapper"></div><script src="JSMpeg.js"></script><script>var
-  poster = 'https://cycjimmy.github.io/staticFiles/images/screenshot/big_buck_bunny_640x360.jpg'
-  , videoUrl = './media/big_buck_bunny_640x360.ts'
-;
 
-var
-  video = new JSMpeg.VideoElement('#videoWrapper', videoUrl, {
-    poster: poster
-  })
-;
+.buttons-wrapper {
+  display: flex;
+  margin: 0 auto;
+  width: 640px;
+  height: 50px;
+}
 
-console.log(video);</script></body></html>
+.button {
+  text-decoration: none;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 10px;
+  border: 1px solid #666;
+  border-radius: 10px;
+  color: #666;
+}
+</style></head><body><div id="videoWrapper"></div><div class="buttons-wrapper"><a class="button" href="javascript:;" data-action="play">play</a><a class="button" href="javascript:;" data-action="pause">pause</a><a class="button" href="javascript:;" data-action="stop">stop</a><a class="button" href="javascript:;" data-action="destroy">destroy</a></div><script src="JSMpeg.js"></script><script>var videoUrl = './media/big_buck_bunny_640x360.ts';
+
+var video = new JSMpeg.VideoElement('#videoWrapper', videoUrl, {
+  poster: 'https://cycjimmy.github.io/staticFiles/images/screenshot/big_buck_bunny_640x360.jpg'
+});
+
+console.log(video);
+
+document.querySelector('.buttons-wrapper').addEventListener('click', function (e) {
+  var target = e.target;
+
+  if (target === this) {
+    return;
+  }
+
+  var sAction = target.dataset.action;
+
+  if (!sAction) {
+    return
+  }
+
+  video[sAction]();
+});</script></body></html>

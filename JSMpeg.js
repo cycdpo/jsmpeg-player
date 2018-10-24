@@ -1,5 +1,5 @@
 /*!
- * jsmpeg-player v2.0.0
+ * jsmpeg-player v2.1.0
  * Homepage: https://github.com/cycdpo/jsmpeg-player#readme
  * Released under the MIT License.
  */
@@ -121,10 +121,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/sass-loader/lib/loader.js?!./static/theme/style.scss":
-/*!************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--5-1!./node_modules/sass-loader/lib/loader.js??ref--5-2!./static/theme/style.scss ***!
-  \************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/sass-loader/lib/loader.js?!./src/theme/style.scss":
+/*!*********************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/sass-loader/lib/loader.js??ref--5-2!./src/theme/style.scss ***!
+  \*********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -133,17 +133,15 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".static-theme-style__canvas,\n.static-theme-style__poster, .static-theme-style__unmuteButton, .static-theme-style__playButton, .static-theme-style__unmuteButtonSvg {\n  position: absolute;\n  z-index: 1;\n}\n\n.static-theme-style__canvas,\n.static-theme-style__poster, .static-theme-style__unmuteButton {\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n}\n\n.static-theme-style__playButton {\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  margin: auto;\n}\n\n.static-theme-style__wrapper {\n  position: relative;\n}\n\n.static-theme-style__canvas,\n.static-theme-style__poster {\n  display: block;\n}\n\n.static-theme-style__playButton, .static-theme-style__unmuteButton {\n  opacity: .7;\n  cursor: pointer;\n}\n\n.static-theme-style__playButton, .static-theme-style__playButtonSvg {\n  max-width: 60px;\n  max-height: 60px;\n}\n\n.static-theme-style__playButton {\n  z-index: 10;\n}\n\n.static-theme-style__playButtonSvg {\n  fill: #fff;\n}\n\n.static-theme-style__unmuteButton {\n  z-index: 10;\n}\n\n.static-theme-style__unmuteButtonSvg {\n  bottom: 15px;\n  right: 15px;\n  width: 40px;\n  height: 40px;\n  fill: #fff;\n}\n", ""]);
+exports.push([module.i, "/*---------------------------\r\n * mixin\r\n *---------------------------*/\n/**\r\n * flex container inner elements alignment\r\n * $mainAxis\r\n * $crossAxis\r\n * options: false, center, flex-end, ...\r\n */\n/*---------------------------\r\n * %placeholder\r\n *---------------------------*/\n.src-theme-style__canvas,\n.src-theme-style__poster, .src-theme-style__playButton, .src-theme-style__unmuteButton {\n  position: absolute;\n  z-index: 1;\n}\n\n.src-theme-style__canvas,\n.src-theme-style__poster, .src-theme-style__playButton, .src-theme-style__unmuteButton {\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n}\n\n.src-theme-style__playButton {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.src-theme-style__canvas,\n.src-theme-style__poster {\n  display: block;\n}\n\n.src-theme-style__poster.src-theme-style__hidden {\n  display: none;\n}\n\n.src-theme-style__playButton, .src-theme-style__unmuteButton {\n  opacity: .7;\n  cursor: pointer;\n  -webkit-tap-highlight-color: rgba(255, 0, 0, 0);\n}\n\n.src-theme-style__hidden.src-theme-style__playButton, .src-theme-style__hidden.src-theme-style__unmuteButton {\n  display: none;\n}\n\n.src-theme-style__playButton {\n  z-index: 10;\n}\n\n.src-theme-style__playButton > svg {\n  width: 8vw;\n  height: 8vw;\n  max-width: 60px;\n  max-height: 60px;\n  fill: #fff;\n}\n\n.src-theme-style__unmuteButton {\n  z-index: 10;\n  display: flex;\n  justify-content: flex-end;\n  align-items: flex-end;\n}\n\n.src-theme-style__unmuteButton > svg {\n  margin: 0 15px 15px 0;\n  width: 6vw;\n  height: 6vw;\n  max-width: 40px;\n  max-height: 40px;\n  fill: #fff;\n}\n", ""]);
 
 // exports
 exports.locals = {
-	"canvas": "static-theme-style__canvas",
-	"poster": "static-theme-style__poster",
-	"unmuteButton": "static-theme-style__unmuteButton",
-	"playButton": "static-theme-style__playButton",
-	"unmuteButtonSvg": "static-theme-style__unmuteButtonSvg",
-	"wrapper": "static-theme-style__wrapper",
-	"playButtonSvg": "static-theme-style__playButtonSvg"
+	"canvas": "src-theme-style__canvas",
+	"poster": "src-theme-style__poster",
+	"playButton": "src-theme-style__playButton",
+	"unmuteButton": "src-theme-style__unmuteButton",
+	"hidden": "src-theme-style__hidden"
 };
 
 /***/ }),
@@ -231,271 +229,6 @@ function toComment(sourceMap) {
 
 	return '/*# ' + data + ' */';
 }
-
-
-/***/ }),
-
-/***/ "./node_modules/pug-runtime/index.js":
-/*!*******************************************!*\
-  !*** ./node_modules/pug-runtime/index.js ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var pug_has_own_property = Object.prototype.hasOwnProperty;
-
-/**
- * Merge two attribute objects giving precedence
- * to values in object `b`. Classes are special-cased
- * allowing for arrays and merging/joining appropriately
- * resulting in a string.
- *
- * @param {Object} a
- * @param {Object} b
- * @return {Object} a
- * @api private
- */
-
-exports.merge = pug_merge;
-function pug_merge(a, b) {
-  if (arguments.length === 1) {
-    var attrs = a[0];
-    for (var i = 1; i < a.length; i++) {
-      attrs = pug_merge(attrs, a[i]);
-    }
-    return attrs;
-  }
-
-  for (var key in b) {
-    if (key === 'class') {
-      var valA = a[key] || [];
-      a[key] = (Array.isArray(valA) ? valA : [valA]).concat(b[key] || []);
-    } else if (key === 'style') {
-      var valA = pug_style(a[key]);
-      valA = valA && valA[valA.length - 1] !== ';' ? valA + ';' : valA;
-      var valB = pug_style(b[key]);
-      valB = valB && valB[valB.length - 1] !== ';' ? valB + ';' : valB;
-      a[key] = valA + valB;
-    } else {
-      a[key] = b[key];
-    }
-  }
-
-  return a;
-};
-
-/**
- * Process array, object, or string as a string of classes delimited by a space.
- *
- * If `val` is an array, all members of it and its subarrays are counted as
- * classes. If `escaping` is an array, then whether or not the item in `val` is
- * escaped depends on the corresponding item in `escaping`. If `escaping` is
- * not an array, no escaping is done.
- *
- * If `val` is an object, all the keys whose value is truthy are counted as
- * classes. No escaping is done.
- *
- * If `val` is a string, it is counted as a class. No escaping is done.
- *
- * @param {(Array.<string>|Object.<string, boolean>|string)} val
- * @param {?Array.<string>} escaping
- * @return {String}
- */
-exports.classes = pug_classes;
-function pug_classes_array(val, escaping) {
-  var classString = '', className, padding = '', escapeEnabled = Array.isArray(escaping);
-  for (var i = 0; i < val.length; i++) {
-    className = pug_classes(val[i]);
-    if (!className) continue;
-    escapeEnabled && escaping[i] && (className = pug_escape(className));
-    classString = classString + padding + className;
-    padding = ' ';
-  }
-  return classString;
-}
-function pug_classes_object(val) {
-  var classString = '', padding = '';
-  for (var key in val) {
-    if (key && val[key] && pug_has_own_property.call(val, key)) {
-      classString = classString + padding + key;
-      padding = ' ';
-    }
-  }
-  return classString;
-}
-function pug_classes(val, escaping) {
-  if (Array.isArray(val)) {
-    return pug_classes_array(val, escaping);
-  } else if (val && typeof val === 'object') {
-    return pug_classes_object(val);
-  } else {
-    return val || '';
-  }
-}
-
-/**
- * Convert object or string to a string of CSS styles delimited by a semicolon.
- *
- * @param {(Object.<string, string>|string)} val
- * @return {String}
- */
-
-exports.style = pug_style;
-function pug_style(val) {
-  if (!val) return '';
-  if (typeof val === 'object') {
-    var out = '';
-    for (var style in val) {
-      /* istanbul ignore else */
-      if (pug_has_own_property.call(val, style)) {
-        out = out + style + ':' + val[style] + ';';
-      }
-    }
-    return out;
-  } else {
-    return val + '';
-  }
-};
-
-/**
- * Render the given attribute.
- *
- * @param {String} key
- * @param {String} val
- * @param {Boolean} escaped
- * @param {Boolean} terse
- * @return {String}
- */
-exports.attr = pug_attr;
-function pug_attr(key, val, escaped, terse) {
-  if (val === false || val == null || !val && (key === 'class' || key === 'style')) {
-    return '';
-  }
-  if (val === true) {
-    return ' ' + (terse ? key : key + '="' + key + '"');
-  }
-  if (typeof val.toJSON === 'function') {
-    val = val.toJSON();
-  }
-  if (typeof val !== 'string') {
-    val = JSON.stringify(val);
-    if (!escaped && val.indexOf('"') !== -1) {
-      return ' ' + key + '=\'' + val.replace(/'/g, '&#39;') + '\'';
-    }
-  }
-  if (escaped) val = pug_escape(val);
-  return ' ' + key + '="' + val + '"';
-};
-
-/**
- * Render the given attributes object.
- *
- * @param {Object} obj
- * @param {Object} terse whether to use HTML5 terse boolean attributes
- * @return {String}
- */
-exports.attrs = pug_attrs;
-function pug_attrs(obj, terse){
-  var attrs = '';
-
-  for (var key in obj) {
-    if (pug_has_own_property.call(obj, key)) {
-      var val = obj[key];
-
-      if ('class' === key) {
-        val = pug_classes(val);
-        attrs = pug_attr(key, val, false, terse) + attrs;
-        continue;
-      }
-      if ('style' === key) {
-        val = pug_style(val);
-      }
-      attrs += pug_attr(key, val, false, terse);
-    }
-  }
-
-  return attrs;
-};
-
-/**
- * Escape the given string of `html`.
- *
- * @param {String} html
- * @return {String}
- * @api private
- */
-
-var pug_match_html = /["&<>]/;
-exports.escape = pug_escape;
-function pug_escape(_html){
-  var html = '' + _html;
-  var regexResult = pug_match_html.exec(html);
-  if (!regexResult) return _html;
-
-  var result = '';
-  var i, lastIndex, escape;
-  for (i = regexResult.index, lastIndex = 0; i < html.length; i++) {
-    switch (html.charCodeAt(i)) {
-      case 34: escape = '&quot;'; break;
-      case 38: escape = '&amp;'; break;
-      case 60: escape = '&lt;'; break;
-      case 62: escape = '&gt;'; break;
-      default: continue;
-    }
-    if (lastIndex !== i) result += html.substring(lastIndex, i);
-    lastIndex = i + 1;
-    result += escape;
-  }
-  if (lastIndex !== i) return result + html.substring(lastIndex, i);
-  else return result;
-};
-
-/**
- * Re-throw the given `err` in context to the
- * the pug in `filename` at the given `lineno`.
- *
- * @param {Error} err
- * @param {String} filename
- * @param {String} lineno
- * @param {String} str original source
- * @api private
- */
-
-exports.rethrow = pug_rethrow;
-function pug_rethrow(err, filename, lineno, str){
-  if (!(err instanceof Error)) throw err;
-  if ((typeof window != 'undefined' || !filename) && !str) {
-    err.message += ' on line ' + lineno;
-    throw err;
-  }
-  try {
-    str = str || __webpack_require__(/*! fs */ 0).readFileSync(filename, 'utf8')
-  } catch (ex) {
-    pug_rethrow(err, null, lineno)
-  }
-  var context = 3
-    , lines = str.split('\n')
-    , start = Math.max(lineno - context, 0)
-    , end = Math.min(lines.length, lineno + context);
-
-  // Error context
-  var context = lines.slice(start, end).map(function(line, i){
-    var curr = i + start + 1;
-    return (curr == lineno ? '  > ' : '    ')
-      + curr
-      + '| '
-      + line;
-  }).join('\n');
-
-  // Alter exception message
-  err.path = filename;
-  err.message = (filename || 'Pug') + ':' + lineno
-    + '\n' + context + '\n\n' + err.message;
-  throw err;
-};
 
 
 /***/ }),
@@ -1006,6 +739,31 @@ module.exports = function (css) {
 	return fixedCss;
 };
 
+
+/***/ }),
+
+/***/ "./src/buttonView.js":
+/*!***************************!*\
+  !*** ./src/buttonView.js ***!
+  \***************************/
+/*! exports provided: PLAY_BUTTON, UNMUTE_BUTTON */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PLAY_BUTTON", function() { return PLAY_BUTTON; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UNMUTE_BUTTON", function() { return UNMUTE_BUTTON; });
+/**
+ * PLAY_BUTTON HTML
+ * @type {string}
+ */
+var PLAY_BUTTON = "\n<svg viewBox=\"0 0 64 64\">\n  <path d=\"M26,45.5L44,32L26,18.6v27V45.5L26,45.5z M32,2C15.4,2,2,15.5,2,32c0,16.6,13.4,30,30,30c16.6,0,30-13.4,30-30 C62,15.4,48.5,2,32,2L32,2z M32,56c-9.7,0-18.5-5.9-22.2-14.8C6.1,32.2,8.1,21.9,15,15c6.9-6.9,17.2-8.9,26.2-5.2 C50.1,13.5,56,22.3,56,32C56,45.3,45.2,56,32,56L32,56z\"/>\n</svg>\n";
+/**
+ * UNMUTE_BUTTON HTML
+ * @type {string}
+ */
+
+var UNMUTE_BUTTON = "\n<svg viewBox=\"0 0 64 64\">\n  <path d=\"M58.3,45.5l-4.8-4.3c1.4-2.9,2.2-6.2,2.2-9.6c0-11.1-8.2-20.3-18.9-21.9V3.3C50.9,4.9,62,16.9,62,31.6 C62,36.6,60.6,41.4,58.3,45.5L58.3,45.5z M30.4,5.6v15.2l-8.3-7.3L30.4,5.6L30.4,5.6z M36.7,19.9c4.6,1.9,7.9,6.4,7.9,11.7 c0,0.6-0.1,1.1-0.1,1.7l-7.8-6.9V19.9L36.7,19.9z M57.5,60.7l-7.1-6.3c-3.9,2.9-8.6,4.8-13.7,5.4v-6.4c3.2-0.5,6.2-1.7,8.8-3.4 l-8.1-7.2c-0.2,0.1-0.5,0.3-0.7,0.4v-1l-6.3-5.6v20.2L15.4,42.6H2V20.5h10.2l-9.7-8.6l4.2-4.7L61.7,56L57.5,60.7L57.5,60.7z\"/>\n</svg>\n";
 
 /***/ }),
 
@@ -4909,22 +4667,18 @@ TS.STREAM = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return VideoElement; });
-/* harmony import */ var _player__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./player */ "./src/lib/player.js");
-/* harmony import */ var _static_theme_style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../static/theme/style.scss */ "./static/theme/style.scss");
-/* harmony import */ var _static_theme_style_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_static_theme_style_scss__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _static_view_playButton_pug__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../static/view/playButton.pug */ "./static/view/playButton.pug");
-/* harmony import */ var _static_view_playButton_pug__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_static_view_playButton_pug__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _static_view_unmuteButton_pug__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../static/view/unmuteButton.pug */ "./static/view/unmuteButton.pug");
-/* harmony import */ var _static_view_unmuteButton_pug__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_static_view_unmuteButton_pug__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var awesome_js_funcs_judgeBasic_isString__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! awesome-js-funcs/judgeBasic/isString */ "./node_modules/awesome-js-funcs/judgeBasic/isString.js");
+/* harmony import */ var _theme_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../theme/style.scss */ "./src/theme/style.scss");
+/* harmony import */ var _theme_style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_theme_style_scss__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _buttonView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../buttonView */ "./src/buttonView.js");
+/* harmony import */ var _player__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./player */ "./src/lib/player.js");
+/* harmony import */ var awesome_js_funcs_judgeBasic_isString__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! awesome-js-funcs/judgeBasic/isString */ "./node_modules/awesome-js-funcs/judgeBasic/isString.js");
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
- // style
-
- // template
-
+// style
+ // button view
 
  // service
+
 
 
 
@@ -4985,13 +4739,17 @@ function () {
     this.player = null; // Setup canvas and play button
 
     this.els = {
-      wrapper: Object(awesome_js_funcs_judgeBasic_isString__WEBPACK_IMPORTED_MODULE_4__["default"])(wrapper) ? document.querySelector(wrapper) : wrapper,
+      wrapper: Object(awesome_js_funcs_judgeBasic_isString__WEBPACK_IMPORTED_MODULE_3__["default"])(wrapper) ? document.querySelector(wrapper) : wrapper,
       canvas: null,
       playButton: document.createElement('div'),
       unmuteButton: null,
       poster: null
     };
-    this.els.wrapper.classList.add(_static_theme_style_scss__WEBPACK_IMPORTED_MODULE_1___default.a.wrapper);
+
+    if (window.getComputedStyle(this.els.wrapper).getPropertyValue('position') === 'static') {
+      this.els.wrapper.style.position = 'relative';
+    }
+
     this.els.wrapper.clientRect = this.els.wrapper.getBoundingClientRect();
     this.initCanvas();
     this.initPlayButton();
@@ -5002,10 +4760,10 @@ function () {
 
   _proto.initCanvas = function initCanvas() {
     if (this.options.canvas) {
-      this.els.canvas = Object(awesome_js_funcs_judgeBasic_isString__WEBPACK_IMPORTED_MODULE_4__["default"])(this.options.canvas) ? document.querySelector(this.options.canvas) : this.options.canvas;
+      this.els.canvas = Object(awesome_js_funcs_judgeBasic_isString__WEBPACK_IMPORTED_MODULE_3__["default"])(this.options.canvas) ? document.querySelector(this.options.canvas) : this.options.canvas;
     } else {
       this.els.canvas = document.createElement('canvas');
-      this.els.canvas.classList.add(_static_theme_style_scss__WEBPACK_IMPORTED_MODULE_1___default.a.canvas);
+      this.els.canvas.classList.add(_theme_style_scss__WEBPACK_IMPORTED_MODULE_0___default.a.canvas);
       this.els.wrapper.appendChild(this.els.canvas);
     }
 
@@ -5028,28 +4786,28 @@ function () {
     }); // Create the player instance
 
 
-    this.player = new _player__WEBPACK_IMPORTED_MODULE_0__["default"](this.options.videoUrl, _options, {
+    this.player = new _player__WEBPACK_IMPORTED_MODULE_2__["default"](this.options.videoUrl, _options, {
       play: function play() {
         if (_this.options.needPlayButton) {
-          _this.els.playButton.style.display = 'none';
+          _this.els.playButton.classList.add(_theme_style_scss__WEBPACK_IMPORTED_MODULE_0___default.a.hidden);
         }
 
         if (_this.els.poster) {
-          _this.els.poster.style.display = 'none';
+          _this.els.poster.classList.add(_theme_style_scss__WEBPACK_IMPORTED_MODULE_0___default.a.hidden);
         }
 
         _this.options.hooks.play();
       },
       pause: function pause() {
         if (_this.options.needPlayButton) {
-          _this.els.playButton.style.display = 'block';
+          _this.els.playButton.classList.remove(_theme_style_scss__WEBPACK_IMPORTED_MODULE_0___default.a.hidden);
         }
 
         _this.options.hooks.pause();
       },
       stop: function stop() {
         if (_this.els.poster) {
-          _this.els.poster.style.display = 'block';
+          _this.els.poster.classList.remove(_theme_style_scss__WEBPACK_IMPORTED_MODULE_0___default.a.hidden);
         }
 
         _this.options.hooks.stop();
@@ -5071,7 +4829,7 @@ function () {
       this.options.decodeFirstFrame = false;
       this.els.poster = new Image();
       this.els.poster.src = this.options.poster;
-      this.els.poster.classList.add(_static_theme_style_scss__WEBPACK_IMPORTED_MODULE_1___default.a.poster);
+      this.els.poster.classList.add(_theme_style_scss__WEBPACK_IMPORTED_MODULE_0___default.a.poster);
       this.els.wrapper.appendChild(this.els.poster);
     } // Add the click handler if this video is pausable
 
@@ -5082,7 +4840,7 @@ function () {
 
 
     if (this.options.autoplay || this.player.options.streaming) {
-      this.els.playButton.style.display = 'none';
+      this.els.playButton.classList.add(_theme_style_scss__WEBPACK_IMPORTED_MODULE_0___default.a.hidden);
     } // Set up the unlock audio buton for iOS devices. iOS only allows us to
     // play audio after a user action has initiated playing. For autoplay or
     // streaming players we set up a muted speaker icon as the button. For all
@@ -5094,10 +4852,8 @@ function () {
 
       if (this.options.autoplay || this.player.options.streaming) {
         this.els.unmuteButton = document.createElement('div');
-        this.els.unmuteButton.innerHTML = _static_view_unmuteButton_pug__WEBPACK_IMPORTED_MODULE_3___default()({
-          _style: _static_theme_style_scss__WEBPACK_IMPORTED_MODULE_1___default.a
-        });
-        this.els.unmuteButton.classList.add(_static_theme_style_scss__WEBPACK_IMPORTED_MODULE_1___default.a.unmuteButton);
+        this.els.unmuteButton.innerHTML = _buttonView__WEBPACK_IMPORTED_MODULE_1__["UNMUTE_BUTTON"];
+        this.els.unmuteButton.classList.add(_theme_style_scss__WEBPACK_IMPORTED_MODULE_0___default.a.unmuteButton);
         this.els.wrapper.appendChild(this.els.unmuteButton);
         unlockAudioElement = this.els.unmuteButton;
       }
@@ -5113,10 +4869,8 @@ function () {
       return;
     }
 
-    this.els.playButton.classList.add(_static_theme_style_scss__WEBPACK_IMPORTED_MODULE_1___default.a.playButton);
-    this.els.playButton.innerHTML = _static_view_playButton_pug__WEBPACK_IMPORTED_MODULE_2___default()({
-      _style: _static_theme_style_scss__WEBPACK_IMPORTED_MODULE_1___default.a
-    });
+    this.els.playButton.classList.add(_theme_style_scss__WEBPACK_IMPORTED_MODULE_0___default.a.playButton);
+    this.els.playButton.innerHTML = _buttonView__WEBPACK_IMPORTED_MODULE_1__["PLAY_BUTTON"];
     this.els.wrapper.appendChild(this.els.playButton);
   };
 
@@ -5130,7 +4884,7 @@ function () {
 
     this.player.audioOut.unlock(function () {
       if (_this2.els.unmuteButton) {
-        _this2.els.unmuteButton.style.display = 'none';
+        _this2.els.unmuteButton.classList.add(_theme_style_scss__WEBPACK_IMPORTED_MODULE_0___default.a.hidden);
       }
 
       element.removeEventListener('touchstart', _this2.unlockAudioBound);
@@ -5784,6 +5538,36 @@ WSSource.prototype.onMessage = function (ev) {
 
 /***/ }),
 
+/***/ "./src/theme/style.scss":
+/*!******************************!*\
+  !*** ./src/theme/style.scss ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader??ref--5-1!../../node_modules/sass-loader/lib/loader.js??ref--5-2!./style.scss */ "./node_modules/css-loader/index.js?!./node_modules/sass-loader/lib/loader.js?!./src/theme/style.scss");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./src/utils.js":
 /*!**********************!*\
   !*** ./src/utils.js ***!
@@ -5829,75 +5613,6 @@ var Base64ToArrayBuffer = function Base64ToArrayBuffer(base64) {
 
   return bytes.buffer;
 };
-
-/***/ }),
-
-/***/ "./static/theme/style.scss":
-/*!*********************************!*\
-  !*** ./static/theme/style.scss ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../node_modules/css-loader??ref--5-1!../../node_modules/sass-loader/lib/loader.js??ref--5-2!./style.scss */ "./node_modules/css-loader/index.js?!./node_modules/sass-loader/lib/loader.js?!./static/theme/style.scss");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "./static/view/playButton.pug":
-/*!************************************!*\
-  !*** ./static/view/playButton.pug ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var pug = __webpack_require__(/*! ../../node_modules/pug-runtime/index.js */ "./node_modules/pug-runtime/index.js");
-
-function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (_style) {pug_html = pug_html + "\u003Csvg" + (pug.attr("class", pug.classes([_style.playButtonSvg], [true]), false, true)+" viewBox=\"0 0 64 64\"") + "\u003E\u003Cpath d=\"M26,45.5L44,32L26,18.6v27V45.5L26,45.5z M32,2C15.4,2,2,15.5,2,32c0,16.6,13.4,30,30,30c16.6,0,30-13.4,30-30 C62,15.4,48.5,2,32,2L32,2z M32,56c-9.7,0-18.5-5.9-22.2-14.8C6.1,32.2,8.1,21.9,15,15c6.9-6.9,17.2-8.9,26.2-5.2 C50.1,13.5,56,22.3,56,32C56,45.3,45.2,56,32,56L32,56z\"\u003E\u003C\u002Fpath\u003E\u003C\u002Fsvg\u003E";}.call(this,"_style" in locals_for_with?locals_for_with._style:typeof _style!=="undefined"?_style:undefined));;return pug_html;};
-module.exports = template;
-
-/***/ }),
-
-/***/ "./static/view/unmuteButton.pug":
-/*!**************************************!*\
-  !*** ./static/view/unmuteButton.pug ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var pug = __webpack_require__(/*! ../../node_modules/pug-runtime/index.js */ "./node_modules/pug-runtime/index.js");
-
-function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (_style) {pug_html = pug_html + "\u003Csvg" + (pug.attr("class", pug.classes([_style.unmuteButtonSvg], [true]), false, true)+" viewBox=\"0 0 64 64\"") + "\u003E\u003Cpath d=\"M58.3,45.5l-4.8-4.3c1.4-2.9,2.2-6.2,2.2-9.6c0-11.1-8.2-20.3-18.9-21.9V3.3C50.9,4.9,62,16.9,62,31.6 C62,36.6,60.6,41.4,58.3,45.5L58.3,45.5z M30.4,5.6v15.2l-8.3-7.3L30.4,5.6L30.4,5.6z M36.7,19.9c4.6,1.9,7.9,6.4,7.9,11.7 c0,0.6-0.1,1.1-0.1,1.7l-7.8-6.9V19.9L36.7,19.9z M57.5,60.7l-7.1-6.3c-3.9,2.9-8.6,4.8-13.7,5.4v-6.4c3.2-0.5,6.2-1.7,8.8-3.4 l-8.1-7.2c-0.2,0.1-0.5,0.3-0.7,0.4v-1l-6.3-5.6v20.2L15.4,42.6H2V20.5h10.2l-9.7-8.6l4.2-4.7L61.7,56L57.5,60.7L57.5,60.7z\"\u003E\u003C\u002Fpath\u003E\u003C\u002Fsvg\u003E";}.call(this,"_style" in locals_for_with?locals_for_with._style:typeof _style!=="undefined"?_style:undefined));;return pug_html;};
-module.exports = template;
-
-/***/ }),
-
-/***/ 0:
-/*!********************!*\
-  !*** fs (ignored) ***!
-  \********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/* (ignored) */
 
 /***/ })
 
