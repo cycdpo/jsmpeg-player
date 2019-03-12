@@ -24,6 +24,7 @@
   color: #666;
 }
 </style></head><body><div id="videoWrapper"></div><div class="buttons-wrapper"><a class="button" href="javascript:;" data-action="play">play</a><a class="button" href="javascript:;" data-action="pause">pause</a><a class="button" href="javascript:;" data-action="stop">stop</a><a class="button" href="javascript:;" data-action="destroy">destroy</a></div><script src="JSMpeg.js"></script><script>var videoUrl = './media/big_buck_bunny_640x360.ts';
+// var videoUrl = 'ws://' + document.location.hostname + ':8082/';
 
 var video = new JSMpeg.VideoElement('#videoWrapper', videoUrl, {
   poster: 'https://cycjimmy.github.io/staticFiles/images/screenshot/big_buck_bunny_640x360.jpg'
