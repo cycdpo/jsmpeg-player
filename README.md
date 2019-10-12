@@ -1,7 +1,6 @@
 # JSMpeg Player(TS Player)
 
 [![NPM version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
 [![David deps][david-image]][david-url]
 [![devDependencies Status][david-dev-image]][david-dev-url]
 [![npm download][download-image]][download-url]
@@ -10,8 +9,6 @@
 
 [npm-image]: https://img.shields.io/npm/v/jsmpeg-player.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/jsmpeg-player
-[travis-image]: https://img.shields.io/travis/cycdpo/jsmpeg-player.svg?style=flat-square
-[travis-url]: https://travis-ci.org/cycdpo/jsmpeg-player
 [david-image]: https://img.shields.io/david/cycdpo/jsmpeg-player.svg?style=flat-square
 [david-url]: https://david-dm.org/cycdpo/jsmpeg-player
 [david-dev-image]: https://david-dm.org/cycdpo/jsmpeg-player/dev-status.svg?style=flat-square
@@ -27,6 +24,11 @@
 * Apple device automatically plays without sound, you need to guide the user to click on the video in the lower right corner of the video icon to unlock the sound. (no similar problem in non-autoplay mode)
 
 [Releases](https://github.com/cycdpo/jsmpeg-player/releases) | [Demo](https://cycdpo.github.io/jsmpeg-player/)
+
+## This package has been deprecated
+[new-url]: https://github.com/cycjimmy/jsmpeg-player
+
+**This package has been migrated to [@cycjimmy/jsmpeg-player][new-url] for scoped NPM package. Please switch to [@cycjimmy/jsmpeg-player][new-url] to stay up to date.**
 
 ## How to use
 ### Install

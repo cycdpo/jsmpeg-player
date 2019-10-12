@@ -1,5 +1,5 @@
 /*!
- * jsmpeg-player v3.0.2
+ * jsmpeg-player v3.0.3
  * Homepage: https://github.com/cycdpo/jsmpeg-player#readme
  * Released under the MIT License.
  */
